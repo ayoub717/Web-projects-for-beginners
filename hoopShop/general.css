@@ -1,0 +1,31 @@
+
+
+html{
+    box-sizing: border-box;
+    height: 100%;
+}
+*,
+*::before,
+*::after{
+    box-sizing: inherit;
+    margin: 0;
+    padding: 0;
+    font-family: 'Open Sans', sans-serif;
+    color: white;
+
+}
+body{
+    padding: 10px;
+    overflow: hidden;
+    height: inherit;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    background: url('pics/scene.png');
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+
+   
+}

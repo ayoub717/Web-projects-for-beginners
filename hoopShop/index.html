@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="header.css">
+    <link rel="stylesheet" href="general.css">
+    <link rel="stylesheet" href="footer.css">
+    <link rel="stylesheet" href="main.css">
+    <title>Hoop Shop</title>
+</head>
+<body>
+    <header>
+        <section class="logo-cont">
+            <p class="logo">Hoop Shop</p>
+        </section>
+        <section class="search-cont">
+        </section>
+        <section class="contact-cont">
+            <div class="cont-parts">About</div>
+            <div class="cont-parts">Q&A</div>
+            <div class="cont-parts">Products</div>
+            <div class="cont-parts">Pricing</div>
+            <div class="cont-parts">Contact</div>
+        </section>
+    </header>
+    <main>
+        <div class="circle1"></div>
+        <div class="circle2"></div>
+        <section class="settings">
+            <p class="txt">Size</p>
+            <input type="number" class="size">
+            <p class="txt">Color</p>
+            <div class="tags">
+                <select name="colors" id="colors">
+                    <option value="White">White</option>
+                    <option value="Black">Black</option>
+                    <option value="Pink">Pink</option>
+                    <option value="Light Blue">Light Blue</option>
+                </select>
+            </div>
+            <p class="txt">Quantity</p>
+            <div class="shitCont">
+                <button class="plus" onclick="plus()">+</button>
+                <p id="Quantity">00</p>
+                <button class="minus" onclick="minus()">-</button>
+            </div>
+        </section>
+        <div class="main-img-cont" id="mainImgCont">
+            <img class="l21-gal" src="pics/lebron21.png" alt="">
+        </div>
+        <section class="slider">
+            <div class="imgs-cont" id="s1">
+                <img src="pics/curry11.png" alt="" class="min-img">
+            </div>
+            <div class="imgs-cont" id="s2">
+                <img src="pics/Kobe6grinch.png" alt="" class="min-img">
+            </div>
+            <div class="imgs-cont" id="s3">
+                <img src="pics/lebron21.png" alt="" class="min-img1">
+            </div>
+            <div class="imgs-cont" id="s4">
+                <img src="pics/kyrie7.png" alt="" class="min-img2">
+            </div>
+            <div class="imgs-cont" id="s5">
+                <img src="pics/mb02.png" alt="" class="min-img3">
+            </div>
+        </section>
+    </main>
+    <footer>
+        <section class="deco">
+            <h1 class="shoe-name" id="shoeName">Lebron 21</h1>
+            <p class="description" id="desc">
+                Last time around, LeBron flipped the script on his shoe game as only the King can. The encore is even better. The LeBron XXI has a cabling system that works with Zoom Air cushioning.
+
+            </p>
+        </section>
+        <button class="Add">Add to cart</button>
+        <section class="sep"></section>
+        <section class="deco1">
+            <img class="logo-png" src="pics/A__2_-removebg-preview.png" alt="">
+        </section>
+    </footer>
+    <script src="script.js"></script>
+    
+</body>
+</html>
