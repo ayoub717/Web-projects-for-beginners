@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>QR code generator</title>
+    <style>
+        html{
+            box-sizing: border-box;
+            height: 100%;
+        }
+        *,
+        *::before,
+        *::after{
+            box-sizing: inherit;
+            margin: 0;
+            padding: 0;
+
+        }
+        body{
+            height: inherit;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: linear-gradient(320deg,rgb(42, 39, 39), rgb(137, 121, 121));
+            font-family: Arial, Helvetica, sans-serif;
+        }
+        .main{
+            height: fit-content;
+            width: 300px;
+            background: rgba(255, 255, 255, 0.3);
+            backdrop-filter: blur(0.4px);
+            -webkit-backdrop-filter: blur(0.5px);
+            border: 1px solid rgba(0, 0, 0, 0.614);
+            border-radius: 20px;
+            padding: 30px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            gap: 10px;
+            box-shadow: 0 0 200px rgba(27, 27, 27, 0.899);
+            animation: bounce 0.75s infinite alternate;
+        }
+        @keyframes bounce {
+            from{
+                transform: translateY(-5px);
+            }to{
+                text-replace: translateY(5px);
+            }
+            
+        }
+        p{
+            font-size: 14px;
+            font-weight: bold;      
+        }
+        input{
+            padding: 10px;
+            background: rgba(255, 255, 255, 0.2);
+            border: solid 1px rgba(0, 0, 0, 0.755);
+            border-radius: 5px;
+        }
+        button{
+            font-size: 15px;
+            font-weight: bold;
+            border: 1px solid rgba(0, 0, 0, 0.596);
+            border-radius: 20px;
+            padding: 10px;
+            background:rgba(255, 255, 255, 0.2);
+            cursor: pointer;
+            transition: all 0.5s ease-in-out;
+       
+          
+        }
+        button:hover{
+            color: white;
+            background-color: rgba(0, 0, 0, 0.673);
+            border: 1px solid rgba(255, 255, 255, 0.775);
+            box-shadow: -20px 5px  whitesmoke;
+        }
+        .container{
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 200px;
+            border-radius: 5px;
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 1s;
+        }
+        .container img{
+            width: 100%;
+            padding: 5px;
+        }
+        .container.showimg{
+            max-height: 300px;
+            margin: 10px auto;
+            border: 1px solid rgba(0, 0, 0, 0.733);
+        }
+        .error{
+            animation: shake 0.1s linear 10;
+        }
+        @keyframes shake {
+            0%{
+                transform: translateX(0);
+            }
+            25%{
+                transform: translateX(-2px);
+            }
+            50%{
+                transform: translateX(0);
+            }
+            75%{
+                transform: translateX(2px);
+            }
+            100%{
+                transform: translateX(0);
+            }
+        
+            
+        }
+    </style>
+</head>
+<body>
+    <div class="main">
+        <p>Enter a text or a URL</p>
+        <input id="input" type="text">
+        <div class="container" id="qrcont">
+            <img src="" id="qrimg">
+        </div>
+        <button onclick="gen()">Generate QR code</button>
+    </div>
+    <script>
+       
+        function gen(){
+            let word = document.getElementById('input').value;
+            if(word.length> 0){
+                document.getElementById('qrimg').src = "https://api.qrserver.com/v1/create-qr-code/?size=150x150&data="+word;
+                document.getElementById('qrcont').classList.add("showimg");
+            }else{
+                document.getElementById('input').classList.add('error');
+                setTimeout(()=>{
+                    document.getElementById('input').classList.remove('error');
+                    
+                },1000);
+            }
+        }
+       
+    </script>
+</body>
+</html>

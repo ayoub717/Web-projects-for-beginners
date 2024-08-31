@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ayoub Presentation</title>
+    <style>
+        html{
+            box-sizing: border-box;
+            height: 100%;
+        }
+        
+        *,
+        *::before,
+        *::after{
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+        }
+        
+        body{
+            z-index: auto;
+            height: inherit;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: black;
+            font-display: swap;
+        }
+        .main{
+            height: 100px;
+            width: 250px;
+            background: transparent;
+            border: 2px solid white;
+            border-radius: 30px;
+            box-shadow: 0 0 20px white;
+            color: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 25px;
+            text-align: center;
+            position: relative;
+            animation: light 0.25s reverse 5;
+
+        }
+        .container{
+            width: 600px;
+            height: fit-content;
+            background-color: transparent;
+            position: absolute;
+            bottom: -230px;
+            border: 2px solid white;
+            border-radius: 40px;
+            box-shadow: 0 0 20px white;
+            animation: light 0.25s reverse 5;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+            padding: 10px;
+
+        }
+        @keyframes light {
+            0%{
+                box-shadow: none;
+            }
+            50%{
+                box-shadow: 0  0 20px white;
+            }
+            70%{
+                box-shadow: none;
+        
+            }
+            90%{
+                box-shadow: 0 0 20px white;
+            }
+            100%{
+                box-shadow: none;
+            }
+            
+        }
+        img{
+            position: absolute;
+            top: -350px;
+            height: 400px;
+            filter: drop-shadow(0 0 10px white);
+            animation: light2 0.25s ease-in 5;
+        }
+        @keyframes light2 {
+            0%{
+                filter: none;
+            }
+            50%{
+                filter: drop-shadow(0 0 10px white);
+            }
+            70%{
+                filter: none;
+        
+            }
+            90%{
+                filter: drop-shadow(0 0 10px white);
+            }
+            100%{
+                filter: none;
+            }
+            
+        }
+    </style>
+</head>
+<body>
+    <div class="main">WELL THAT'S ME!
+        <img src="A__2_-removebg-preview.png">
+        <div class="container">
+            <p>
+                Hi! I am a  dreamer from Morocco OUARZAZATE,
+                I am creative, active person.
+            </p>
+            <p>
+                I started programming since I was 13 yo, from "scratch"
+                 to "python" and web developpement.
+            </p>
+            <p>
+                I am a designer too, I beleive that things should always be well 
+                looking cuz details make difference.
+            </p>
+        </div>
+    </div>
+</body>
+</html>

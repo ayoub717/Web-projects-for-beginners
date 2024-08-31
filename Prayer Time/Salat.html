@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="ar">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Salati</title>
+    <style>
+        html{
+            box-sizing: border-box;
+            height: 100%;
+        }
+        *,
+        *::before,
+        *::after{
+            box-sizing: inherit;
+            margin: 0;
+            padding: 0;
+
+        }
+        body{
+            height: inherit;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: linear-gradient(320deg,rgb(39, 197, 31),#2a9d8f);
+            font-family: Arial, Helvetica, sans-serif;
+            font-display: swap;
+            padding: 100px;
+        }
+        .main{
+            position: relative;
+            animation: float 1s infinite alternate;
+            width: 100%;
+            backdrop-filter: blur(4.4px);
+            -webkit-backdrop-filter: blur(4.4px);
+            background: rgba(255, 255, 255, 0.8);
+            border: 1px solid white;
+            border-radius: 50px;
+            text-align: right;
+            display: flex;
+            justify-content: center;
+            flex-direction: column;
+            padding: 20px;
+            gap: 50px;
+            box-shadow: 0 0 200px 2px rgba(0, 0, 0, 0.588);
+
+        }
+        .title{
+            text-align: center;
+        }
+        input{
+            text-align: right;
+            padding: 10px;
+            padding-right: 15px;
+            border-radius: 20px;
+            background: rgba(255, 255, 255, 0.6);
+            border: 1px solid white;
+            flex: 1;
+            box-shadow: -2px -2px 15px rgba(255, 255, 255, 0.833);
+        }
+        .container{
+            width: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-direction: row-reverse;
+            gap: 10px;
+        }
+        .city,.date{
+            animation: float 1s infinite alternate;
+            text-align: center;
+            font-weight: bold;
+            width: 100%;
+            padding: 10px;
+            border: 1px solid white;
+            border-radius: 50px;
+            box-shadow: 0 0 15px rgba(255, 255, 255, 0.57);
+            background: rgba(255, 255, 255, 0.6);
+        }
+        .date{
+            animation: float 1s infinite alternate-reverse;
+        }
+        .salats{
+            width: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: space-around;
+
+        }
+        .salats div{
+            animation: float 1s infinite alternate;
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            height: 100%;
+            padding: 10px;
+            background: rgba(255, 255, 255, 0.8);
+            text-align: center;
+            border: 1px solid white;
+            border-radius: 20px;
+            box-shadow: 0 0 15px rgba(75, 74, 74, 0.714);
+        }
+        button{
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 5px;
+            height: 40px;
+            width: 40px;
+            background: rgba(255, 255, 255, 0.6);
+            border: 1px solid white;
+            box-shadow: -2px -2px 15px rgba(255, 255, 255, 0.833);
+            transition: all 1s ease-in-out;
+            cursor: pointer;
+        }
+        button:hover{
+            transform: rotate(720deg) translate(2px, -2px);
+        }
+        .search-btn{
+            height: 100%;
+            object-fit: cover;
+        }
+        @keyframes float{
+            from{
+                transform: translateY(-2px);
+            }
+            to{
+                transform: translateY(2px);
+            }
+        }
+        .dec{
+            position: absolute;
+            top: -30px;
+            right: -30px;
+            background: linear-gradient(320deg,#2a9d8f,rgb(39, 197, 31));
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+            transform: scale(1.5);
+            animation: dec 1s infinite alternate;
+            border: 1px solid white;
+            box-shadow: 0px  2px 15px #11dbc4,
+                        0px -2px 15px  rgb(20, 238, 8);
+
+        }
+        @keyframes dec{
+            from{
+                transform: rotate(0) ;
+            }to{
+        
+                transform: rotate(720deg) scale(1.5);
+
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="main">
+        <div class="dec"></div>
+        <h1 class="title">مواقيت الصلاة </h1>
+        <div class="container">
+            <input id="city" placeholder="EX:Rabat,..."type="" >
+            <button onclick="search()"><img class="search-btn" src="Scuilla-siteweb/icons8-search.svg" alt=""></button>
+        </div>
+        <p class="city city-js">Rabat</p>
+        <p class="date date-js">الأحد 26 نونبر2023</p>
+        <div class="salats">
+            <div class="fajr">
+                <p>الفجر</p>
+                <div class="fatime">00:00</div>
+            </div>
+            <div class="sob7">
+                <p>الصبح</p>
+                <div class="sotime">00:00</div>
+            </div>
+            <div class="dohr">
+                <p>الظهر</p>
+                <div class="dotime">00:00</div>
+            </div>
+            <div class="3assr">
+                <p>العصر</p>
+                <div class="atime">00:00</div>
+            </div>
+            <div class="maghrib">
+                <p>المغرب</p>
+                <div class="matime">00:00</div>
+            </div>
+            <div class="ishaa">
+                <p>العشاء</p>
+                <div class="istime">00:00</div>
+            </div>
+        </div>
+        
+    </div>
+    <script>
+        function search(){
+            const city = document.getElementById('city').value;
+            const namcity = document.querySelector('.city-js');
+            const date = document.querySelector('.date-js');
+            const fajr = document.querySelector('.fatime');
+            const dohr = document.querySelector('.dotime');
+            const sob7 = document.querySelector('.sotime');
+            const assr = document.querySelector('.atime');
+            const maghrib = document.querySelector('.matime');
+            const ishaa = document.querySelector('.istime');
+            fetch(`http://api.aladhan.com/v1/timingsByCity?city=${city}&country=MA`)
+                .then(res => res.json())
+                .then(data =>{
+                    if(data.code === 400){
+                        date.innerHTML = 'city not found';
+                    }
+                    else{
+                        fajr.innerHTML = data.data.timings.Fajr;
+                        dohr.innerHTML = data.data.timings.Dhuhr;
+                        sob7.innerHTML = data.data.timings.Fajr;
+                        assr.innerHTML = data.data.timings.Asr;
+                        maghrib.innerHTML = data.data.timings.Maghrib;
+                        ishaa.innerHTML = data.data.timings.Isha;
+                        date.innerHTML = data.data.date.readable;
+                        namcity.innerHTML = city; 
+
+                    }
+                    
+
+                });
+         
+        }
+    </script>
+    
+</body>
+</html>
