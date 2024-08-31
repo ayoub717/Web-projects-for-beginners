@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>
+        BMI
+    </title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Dosis:wght@500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+   <div class="main">
+        <div class="section-one">
+            <p>age</p>
+            <input class="age-input" type="number" placeholder="Insert your age here">
+            <p>yo</p>
+        </div>
+        <div class="section-one">
+            <p> height</p>
+            <input class="height-input" type="number" placeholder="Insert your height here">
+            <p>cm</p>
+
+        </div>
+        <div class="section-one">
+            weight
+            <input class="weight-input" type="number" placeholder="Insert your weight here">
+            kg
+        </div>
+        <button class="Calculate" onclick="calculate();">
+            Calculate
+        </button>
+        <div class="result css-result"></div>
+    </div>
+
+    <script>
+        function calculate(){
+            let heightInput = document.querySelector('.height-input');
+            let weightInput = document.querySelector('.weight-input');
+            let result = document.querySelector('.result');
+            let height = parseInt(heightInput.value);
+            let weight = parseInt(weightInput.value);
+            let bmi = (weight / ((height * height)
+                            / 10000)).toFixed(2);
+            console.log(bmi);
+            if(bmi < 18.6){
+                result.innerHTML = `<p style="color: red;
+                font-size: 20px">Under weight: ${bmi}</p>`;
+            }else if (bmi >= 18.6  && bmi <24.9){
+                result.innerHTML= ` <p style="color: green;
+                font-size: 20px">Normal: ${bmi}</p>`;
+            }else{
+                result.innerHTML= `<p style="color: red;
+                font-size:20px">Over weight: ${bmi}</p>`;
+
+            }
+        }    
+       
+    </script>
+</body>
+</html>
