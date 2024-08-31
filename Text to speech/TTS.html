@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Text to speech</title>
+
+        <style>
+            html{
+                box-sizing: border-box;
+                height: 100%;
+            }
+            *,
+            *::before,
+            *::after{
+                box-sizing: inherit;
+                margin: 0;
+                padding: 0;
+
+            }
+            body{
+                height: inherit;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                background: linear-gradient(320deg,yellow , yellowgreen);
+                font-family: 'Dosis', sans-serif;
+                font-display: swap;
+            }
+
+            .main{
+                width: 50%;
+                height: 200px;
+                padding: 20px;
+                gap: 20px;
+                display: flex;
+                align-items: center;
+                justify-content: space-around;
+                flex-direction: column;
+                background: rgba(255, 255, 255, 0.832);
+                border: 1px solid white;
+                border-radius: 40px 20px;
+                box-shadow: 0 0 20px white;
+            }
+
+            h1{
+                background: linear-gradient(320deg, rgb(255, 255, 0), yellowgreen);
+                -webkit-background-clip: text;
+                -webkit-text-fill-color: transparent;    
+            }
+
+            input{
+                width: 100%;
+                height: 100px;
+                overflow-y: scroll;
+                padding-left: 30px;
+                border-radius: 20px;
+                background: rgba(255, 255, 255, 0.832);
+                border: 1px solid yellowgreen;
+                box-shadow: 0 20px 200px yellowgreen;
+                font-size: 15px;
+            }
+
+            button{
+                width: 50%;
+                height: 90px;
+                border-radius: 50px 100px;
+                background: linear-gradient(320deg, yellow, yellowgreen);
+                border: 2px solid white;
+                color: white;
+                font-size: 20px;
+                font-weight: bold;
+                cursor: pointer;
+                transition: all 0.5s ease-in-out;
+            }
+
+            button:hover{
+                transform: scale(1.2) ;
+                box-shadow: 0 0 20px rgba(0, 0, 0, 0.568);
+            }
+
+        </style>
+
+    </head>
+    <body>
+        <div class="main">
+            <h1>Text To Voice App</h1>
+            <input type="text" id="txt" placeholder="Put your text here">
+            <button onclick="speak()">Speak Text</button>
+        </div> 
+        
+        <script src="script.js"></script>
+    </body>
+</html>

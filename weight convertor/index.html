@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Weight Convertor</title>
+
+        <style>
+            html{
+                box-sizing: border-box;
+                height: 100%;
+            }
+            *,
+            *::before,
+            *::after{
+                box-sizing: inherit;
+                margin: 0;
+                padding: 0;
+
+            }
+            body{
+                height: inherit;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                background: linear-gradient(120deg, rgb(0, 140, 255), rgb(236, 131, 208));
+                font-family: 'Dosis', sans-serif;
+                font-display: swap;
+            }
+
+            .main{
+                width: 400px;
+                gap: 10px;
+                background: rgba(255, 255, 255, 0.5);
+                padding: 20px;
+                border-radius: 10px;
+                color: whitesmoke;
+                border: 1px solid white;
+                backdrop-filter: blur(0.4px);
+                -webkit-backdrop-filter: blur(0.4px);
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                justify-content: space-around;
+                box-shadow: 0 0 20px rgba(0, 0, 0, 0.497);
+            }
+
+            h1{
+                background: linear-gradient(120deg, rgb(0, 140, 255), rgb(236, 131, 208));
+                -webkit-background-clip: text;
+                -webkit-text-fill-color: transparent; 
+                text-align: left;
+                width: 100%;
+            }
+
+            .in{
+                width: 100%;
+                display: flex;
+                align-items: center;
+                justify-content: space-between;
+                gap: 10px;
+                font-weight: bolder;
+            }
+
+            input{
+                flex: 1;
+                height: 40px;
+                background: rgba(253, 253, 253, 0.692);
+                border-radius: 10px;
+                border: 1px solid white;
+                padding: 20px;
+                color: black;
+
+            }
+
+            .res-txt{
+                width: 100%;
+                text-align: left;
+                font-weight: bolder;
+            }
+            
+            span{
+                background: linear-gradient(120deg, rgb(0, 140, 255), rgb(236, 131, 208));
+                -webkit-background-clip: text;
+                -webkit-text-fill-color: transparent;  
+                font-size: 25px;
+                margin-left: 30px;
+            }
+
+            
+            @property --a{
+                syntax: '<angle>';
+                inherits: false;
+                initial-value: 120deg;
+            }
+
+         
+
+            button{
+                width: 50%;
+                height: 40px;
+                border: 1px solid white;
+                background: linear-gradient(var(--a), rgb(0, 140, 255), rgb(236, 131, 208));
+                border-radius: 30px;
+                color: white;
+                font-weight: bolder;
+                font-size: 20px;
+                cursor: pointer;
+                transition: --a 0.5s ease-in-out, box-shadow 0.5s ease-in-out, transform 0.5s ease-in-out;
+            }
+
+            button:hover{
+                box-shadow: -10px 0px 20px rgb(236, 131, 208), 10px 0px 20px rgb(0, 140, 255);
+                --a: 320deg;
+                background: linear-gradient(var(--a), rgb(0, 140, 255), rgb(236, 131, 208));
+                transform: scale(1.2);
+            }
+
+        </style>
+    </head>
+    <body>
+        <div class="main">
+            <h1>Weight Convertor</h1>
+            <div class="in">
+                <p>Pounds:</p>
+                <input type="number" id="pound">
+            </div>
+            <button onclick="convert()">Convert</button>
+            <p class="res-txt">Your weight in Kg: <span id="res">00</span></p>
+
+            <script>
+                function convert(){
+                    const pound = parseFloat(document.getElementById('pound').value);
+
+                    const kg = pound * 0.454;
+
+                    document.getElementById('res').innerHTML=`${kg}`;
+                }
+            </script>
+        </div>
+        
+    </body>
+</html>

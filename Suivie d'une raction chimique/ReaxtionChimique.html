@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Suivie d'une reaction chimique</title>
+    <style>
+        html{
+            box-sizing: border-box;
+            height: 100%;
+        }
+        *,
+        *::before,
+        *::after{
+            box-sizing: inherit;
+            margin: 0;
+            padding: 0;
+            font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+            
+     
+
+        }
+        body{
+            padding: 30px;
+            height: inherit;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: linear-gradient(320deg, rgba(201, 15, 114, 0.855), rgb(165, 37, 200), rgb(13, 52, 137));
+        }
+        .main{
+            width: 100%;
+            height: 100%;
+            background-color: rgba(255,255,255,0.15);
+            -webkit-backdrop-filter: blur(100px);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.568);
+            border-radius: 50px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            flex-direction: column;
+            padding: 10px;
+        }
+        h2{
+            width: 100%;
+            text-align: center;
+            height: 50px;
+            padding: 10px;
+            background: rgba(255,255,255,0.25);
+            border: 1px solid rgba(255, 255, 255, 0.568);
+            border-radius: 50px;
+        }
+        .equation{
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            width: 100%;
+            background: rgba(255,255,255,0.25);
+            border: 1px solid rgba(255, 255, 255, 0.568);
+            border-radius: 50px;
+            padding: 10px;
+            height: 50px;
+            font-weight: bold;
+        }
+        .equation input{
+            width: 40px;
+            height: 100%;
+            border-radius: 9px;
+            background: rgba(255,255,255,0.25);
+            border: 1px solid rgba(255, 255, 255, 0.568);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding-left: 10px;
+
+        }
+        .Quantity{
+            width: 100%;
+            height: 65%;
+            background: rgba(255,255,255,0.25);
+            border: 1px solid rgba(255, 255, 255, 0.568);
+            border-radius: 50px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 30px;
+            padding: 10px;
+            position: relative;
+
+        }
+        .reactif, .resultat{
+            background: rgba(255,255,255,0.25);
+            border: 1px solid rgba(255, 255, 255, 0.568);
+            border-radius: 50px;
+            padding: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            width: 100%;
+            font-weight: bold;
+            height: 50px;
+        }
+        .reactif input, .resultat input{
+            width: 40px;
+            height: 100%;
+            border-radius: 9px;
+            background: rgba(255,255,255,0.25);
+            border: 1px solid rgba(255, 255, 255, 0.568);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding-left: 10px;
+        }
+        .stats{
+            width: 50%;
+            height: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: rgba(255,255,255,0.25);
+            border: 1px solid rgba(255, 255, 255, 0.568);
+            border-radius: 50px;
+            padding: 10px;
+            flex-direction: column;
+            gap: 10px;
+        }
+        .statsA{
+            width: 100%;
+            flex: 1;
+            background: rgba(255, 255, 255, 0.25);
+            border: 1px solid rgba(255, 255, 255, 0.568);
+            border-radius: 50px;
+            display: flex;
+            align-items: end;
+            justify-content: space-between;
+            padding: 10px;
+            padding-bottom: 20px;
+            gap: 20px;
+        }
+        .a,.b,.c,.d{
+            width: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 50px;
+            background-color: rgba(255, 255, 255, 0.25);
+            border-radius: 50px;
+            border: 1px solid rgba(255, 255, 255, 0.568);
+            font-size: 15px;
+            font-weight: bold;
+        }
+        button{
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 50px;
+            padding: 10px;
+            width: 50%;
+            border-radius: 50px;
+            background-color: rgba(255, 255, 255, 0.25);
+            border-radius: 50px;
+            border: 1px solid rgba(255, 255, 255, 0.568);
+            font-weight: bold;
+            font-size: 15px;
+            transition: all 0.5s ease-in-out;
+            cursor: pointer;
+        }
+        button:hover{
+            transform: scale(1.2);
+            gap: 0;
+            box-shadow:  0 0 15px white;
+        }
+        .x{
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 20px;
+            width: 100%;
+            background-color: rgba(255, 255, 255, 0.25);
+            border-radius: 50px;
+            border: 1px solid rgba(255, 255, 255, 0.568);
+            padding: 10px;
+        }
+        .x input{
+            width: 100px;
+            border-radius: 50px;
+            padding: 10px;
+            padding-left: 15px;
+            background-color: rgba(255, 255, 255, 0.25);
+            border-radius: 50px;
+            border: 1px solid rgba(255, 255, 255, 0.568);
+        }
+    </style>
+</head>
+<body>
+    <div class="main">
+        <h2>Suivie d'une reaction chimique</h2>
+        <div class="equation">
+            <input id="CA" type="number"><p>A</p>
+            <p>+</p>
+            <input id="CB" type="number"><p>B</p>
+            <p>&#8594</p>
+            <input id="CC" type="number"><p>C</p>
+            <p>+</p>
+            <input id="CD" type="number"><p>D</p>
+        </div>
+        <div class="Quantity">
+            <div class="stats">
+                <div class="reactif">
+                    <p>A:</p>
+                    <input id="QA" type="number"><p>mol</p>
+                    <p>B:</p>
+                    <input id="QB" type="number"><p>mol</p>
+                </div>
+                <div class="statsA">
+                    <div class="a" id="Adiv"></div>
+                    <div class="b" id="Bdiv"></div>
+                </div>
+            </div>
+            <div class="stats">
+                <div class="resultat">
+                    <p>C:</p>
+                    <input id="QC" type="number"><p>mol</p>
+                    <p>D:</p>
+                    <input id="QD" type="number"><p>mol</p>
+                </div>
+                <div class="statsA">
+                    <div class="c" id="Cdiv"></div>
+                    <div class="d" id="Ddiv"></div>
+                </div>
+            </div>
+        </div>
+        <div class="x">
+            <p>Avancement de la reaction en</p>
+            <input id="per" type="number">
+            <p>%</p>
+            <p id="xmaxDis"></p>
+        </div>
+        <button onclick="calculate()"><p>B</p><p>i</p><p>l</p><p>a</p><p>n</p></button>
+    </div>
+    <script>
+        function calculate(){
+            const CA = document.getElementById('CA').value;
+            const CB = document.getElementById('CB').value;
+            const CD = document.getElementById('CD').value;
+            const CC = document.getElementById('CC').value;
+            const QA = document.getElementById('QA').value;
+            const QB = document.getElementById('QB').value;
+            const QC = document.getElementById('QC').value;
+            const QD = document.getElementById('QD').value;
+            const per = document.getElementById('per').value;
+            
+            let xmax1 = QA/CA;
+            console.log(xmax1);
+            let xmax2 = QB/CB;
+            console.log(xmax2);
+            let xmax = 0;
+            if(xmax1 <= xmax2){
+                xmax = xmax1;
+                console.log(xmax);   
+            }else{
+                xmax = xmax2;
+                console.log(xmax);
+            };
+            document.getElementById('xmaxDis').innerHTML = `xmax = ${xmax}`;
+            document.getElementById('Adiv').style.height = `${(QA-CA*(xmax - xmax*(per/100)))*50}%`;
+            document.getElementById('Bdiv').style.height = `${(QB-CB*(xmax - xmax*(per/100)))*50}%`;
+            document.getElementById('Cdiv').style.height = `${(QC+CC*(xmax - xmax*(per/100)))*50}%`;
+            document.getElementById('Ddiv').style.height = `${(QD+CD*(xmax - xmax*(per/100)))*50}%`;
+            document.getElementById('Adiv').innerHTML = `${QA-CA*(xmax - xmax*(per/100))} mol`;
+            document.getElementById('Bdiv').innerHTML = `${QB-CB*(xmax - xmax*(per/100))} mol`;
+            document.getElementById('Cdiv').innerHTML = `${QC+CC*(xmax - xmax*(per/100))} mol`;
+            document.getElementById('Ddiv').innerHTML = `${QD+CD*(xmax - xmax*(per/100))} mol`;
+        }
+    </script>
+    
+</body>
+</html>

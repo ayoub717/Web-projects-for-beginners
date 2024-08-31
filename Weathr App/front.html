@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="styles.css">
+        <title>weather app</title>
+
+    </head>
+    <body>
+        <div class="main">
+            <h3>Weather App</h4>
+            <p>Enter your location</p>
+            <input id="loc" type="text" placeholder="Ex: New York,...">
+            <div class="weather-div">
+                <p id="location">New york</p>
+                <img src="images/clouds.png" id="weather-type">
+                <div id="temperature">0&deg</div>
+                <div class="weather-details">
+                    <div class="humidity">
+                        <img class="humidity-icon" src="images/humidity.png" alt="">
+                        <div id="humidity" class="hunidity-per">0%</div>
+                    </div>
+                    <div class="wind-speed">
+                        <img class="wind-icon" src="images/wind.png" alt="">
+                        <div class="wind-speed-val">0km/h</div>
+                    </div>
+                </div>
+            </div>
+            <div class="search-div">
+                <button id="search">Search</button>
+            </div>
+            <div class="sun"> 
+            </div>
+            
+        </div>
+        <script>
+            
+           
+            
+            
+            let search = document.getElementById('search');
+            search.addEventListener('click', () =>{
+                const apiKey = 'a6a62621abaa1f9b11c382473385569d';
+                const location = document.getElementById('loc').value;
+                if(location === '')
+                    return;
+                fetch(`https://api.openweathermap.org/data/2.5/weather?q=${location}&units=metric&appid=${apiKey}`).then(response => response.json()).then(json => {
+                    const image = document.getElementById('weather-type');
+                    const temperature = document.getElementById('temperature');
+                    const humidity = document.getElementById('humidity');
+                    const windSpeed = document.querySelector('.wind-speed-val');
+
+                    switch (json.weather[0].main) {
+                        case 'Clear':
+                            image.src = 'images/clear.png';
+                            break;
+                        case 'Rain':
+                            image.src = 'images/rain.png';
+                            
+                            break;
+                        case 'Snow':
+                            image.src = 'images/snow.png';
+                            break;
+                        case 'Clouds':
+                            image.src = 'images/clouds.png';
+                            break;
+                        case 'Mist':
+                            image.src = 'images/mist.png';
+                            break;
+                        case 'Haze':
+                            image.src = 'images/mist.png';
+                            break;
+                    
+                        default:
+                            image.src = 'images/mist.png';
+                            break;
+                    }
+
+                    temperature.innerHTML = `${parseInt(json.main.temp)}&deg`;
+                    humidity.innerHTML = `${json.main.humidity}%`;
+                    windSpeed.innerHTML = `${parseInt(json.wind.speed)}km/h`;
+                    document.getElementById('location').innerHTML = `${location}`;
+
+                });
+
+
+            });
+
+        </script>
+    </body>
+</html>

@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Temperature converter</title>
+    <style>
+                html{
+            box-sizing: border-box;
+            height: 100%;
+        }
+        *,
+        *::before,
+        *::after{
+            box-sizing: inherit;
+            margin: 0;
+            padding: 0;
+
+        }
+        body{
+            height: inherit;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: linear-gradient(320deg,red,orange,yellow);
+            font-family: Arial, Helvetica, sans-serif;
+            font-display: swap;
+        }
+        .main{
+            width: 600px;
+            height: 400px;
+            background: rgba(255, 255, 255, 0.605);
+            backdrop-filter: blur(0.6px);
+            -webkit-backdrop-filter: blur(0.6px);
+            border: 1.5px solid rgba(255, 255, 255, 0.832);
+            border-radius: 50px;
+            box-shadow: -2px  -30px 400px yellow, 2px 20px 200px orange;
+            display: flex;
+            align-items: center;
+            justify-content: space-evenly;
+            flex-direction: column;
+            gap: 30px;
+            padding: 30px;
+            z-index: 99;
+        }
+        h1{
+            font-size: 50px;
+            text-decoration: underline;
+            color: orange;
+        }
+        .params{
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            width: 100%;
+            height: 70px;
+            background: rgba(255, 255, 255, 0.282);
+            padding: 10px;
+            border-radius: 50px;
+            border: 1px solid rgba(255, 255, 255, 0.832);
+        }
+        .number{
+            width: 100px;
+            height: 50px;
+            padding-left: 40px;
+            font-size: 20px;
+            border-radius: 50px;
+            border: 1px solid white;
+            background: rgba(255, 255, 255, 0.605);
+
+        }
+        .tem-par{
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 4px;
+            flex-direction: row;
+            width: 50px;
+            background: rgba(255, 255, 255, 0.282);
+            padding: 10px;
+            border-radius: 50px;
+            border: 1px solid white;
+        }
+        button{
+            width: 100%;
+            height: 70px;
+            border-radius: 50px;
+            font-size: 30px;
+            border: 1px solid white;
+            color: white;
+            font-weight: bold;
+            cursor: pointer;
+            transition: 0.5s ease-in-out;
+            background: linear-gradient(120deg,rgba(255, 0, 0, 0.684),rgba(247, 164, 10, 0.738),yellow);
+        }
+        button:hover{
+            transform: translate(2px) rotate(2deg);
+            border: 1px solid orange;
+            background: rgb(255, 255, 255);
+            color: orange;
+            box-shadow: -2px  -30px 400px yellow, 2px 20px 200px orange;
+
+        }
+        .result{
+            height: 70px;
+            width: 100%;
+            background: rgba(255, 255, 255, 0.605);
+            border: 1px solid white;
+            border-radius: 50px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            font-size: 20px;
+        }
+        .termo{
+            position: absolute;
+            background: rgba(255, 255, 255, 0.366);
+            height: 150px;
+            width: 50px;
+            border-radius: 50px;
+            border: 1px solid white;
+            box-shadow: 0 0 130px 0.2px rgb(137, 132, 132);
+            top: -118px;
+            right: 0;
+            z-index: -3;
+            display: flex;
+            align-items: self-end;
+            justify-content: center;
+            padding: 10px;
+            animation: rotate 1s infinite ease-in-out alternate;
+        }
+        .liquid{
+            width: 100%;
+            height: 10%;
+            background:  linear-gradient(120deg,rgba(255, 0, 0, 0.684),rgba(247, 164, 10, 0.738),yellow);
+            border-radius: 50px;
+            border: 1px solid white;
+            animation: bounce 1.5s infinite ease-in-out alternate;
+        }
+        @keyframes rotate {
+            from{
+                transform: rotate(10deg);
+            }to{
+                transform: rotate(-10deg);
+            }
+            
+        }
+        @keyframes bounce {
+            0%{
+                height: 10%;
+            }
+            100%{
+                height: 100%;
+            }
+            
+        }
+    </style>
+</head>
+<body>
+    <div class="main">
+        <h1>Temperature Convrter</h1>
+        <div class="params">  
+            <input type="number" class="number">
+            <div class="tem-par" id="Fd">
+                <p>F</p> <input type="checkbox" name="" id="F">
+            </div>
+            <div class="tem-par" id="Cd">
+                <p>C</p><input type="checkbox" id="C">
+            </div>
+            <div class="tem-par" id="Kd">
+                <p>K</p><input type="checkbox" id="K">
+            </div>
+          
+        </div>
+        <button onclick="convert()">Convert</button>
+        <div class="result"></div>
+        <div class="termo">
+            <div class="liquid"></div>
+        </div>
+
+    </div>
+    <script>
+        function convert(){
+            const num = document.querySelector('.number').value;
+            const Fcheck = document.getElementById('F');
+            const Ccheck = document.getElementById('C');
+            const Kcheck = document.getElementById('K');
+            const res = document.querySelector('.result');
+            if(Fcheck.checked === true && Ccheck.checked === false &&  Kcheck.checked === false){
+                let valC = (num - 32)*(5/9);
+                let valK = valC + 273.15;
+                res.innerHTML = `<p>The temperature is ${valC}C and ${valK}K</p>`
+
+            }else if (Fcheck.checked === false && Ccheck.checked === true &&  Kcheck.checked === false){
+                let valF = (num *(9/5)) + 32;
+                let valK = num + 273.15;
+                res.innerHTML = `<p>The temperature is ${valF}F and ${valK}K</p>`
+
+            }else if(Fcheck.checked === false && Ccheck.checked === false &&  Kcheck.checked === true){
+                let valC = num - 273.15;
+                let valF = (valC * (9/5)) + 32;
+                res.innerHTML = `<p>The temperature is ${valC} C and ${valK} K</p>`
+
+            }else{
+                res.innerHTML = "<h2> Check one checkbox a time </h2>"
+
+            }
+        }
+    </script>
+    
+</body>
+</html>
