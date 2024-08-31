@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Card Memory Game</title>
+        <style>
+            html{
+                box-sizing: border-box;
+                height: 100%;
+            }
+            *,
+            *::before,
+            *::after{
+                box-sizing: inherit;
+                margin: 0;
+                padding: 0;
+
+            }
+            body{
+                height: inherit;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                background: linear-gradient(320deg, rgb(231, 65, 65), rgba(136, 20, 244, 0.879));
+                font-family: 'Dosis', sans-serif;
+                font-display: swap;
+                flex-direction: column;
+                gap: 4px;
+            }
+
+            h1,h2{
+                color: white;
+                font-weight: bold;
+            }
+
+           
+
+            .replay{
+                height: 50px;
+                width: 100px;
+                color: white;
+                font-weight: bold;
+                background: rgba(255, 255, 255, 0.411);
+                border: 1px solid white;
+                border-radius: 5px;
+                cursor: pointer;
+            }
+
+            .container{
+                position: relative;
+                background: rgba(255, 255, 255, 0.45);
+                width: 500px;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                flex-wrap: wrap;
+                gap: 20px;
+                padding: 10px;
+                border-radius: 20px;
+                border: 1px solid white;
+                box-shadow: 0 0 20px white;
+                
+            }
+
+            .stats{
+                background: rgba(255, 255, 255, 0.45);
+                border: 1px solid white;
+                display: flex;
+                align-items: center;
+                justify-content: space-evenly;
+                padding: 10px;
+                border-radius: 10px;
+                height: 100px;
+                width: 100px;
+                position: absolute;
+                right: -120px;
+                flex-direction: column;
+                color: white;
+                font-size: 25px;
+                font-weight: bold;
+                box-shadow: 0 0 20px white;
+                animation: bounce 0.5s alternate ease-in-out infinite;
+
+            }
+
+            @keyframes bounce {
+                from{
+                    transform: translateY(3px);
+                }to{
+                    transform: translateY(-3px);
+                }
+                
+            }
+            @keyframes bounce2 {
+                from{
+                    transform: translateY(3px) rotate(-90deg);
+                }to{
+                    transform: translateY(-3px) rotate(-90deg);
+                }
+                
+            }
+
+            @keyframes pop {
+                from{
+                    transform: scale(0.3);
+                }to{
+                    transform: scale(1);
+                }
+                
+            } 
+
+
+            .card{
+                height: 200px;
+                width: 100px;
+                background: rgba(255, 255, 255, 0.629);
+                border-radius: 20px;
+                border: 1px solid white;
+                transition: all 0.5s ease-in-out;
+                cursor: pointer;
+                animation: pop 0.5s ease-in-out;
+                box-shadow: 0 0 20px white;
+            }
+
+            .title{
+                position: absolute;
+                transform: rotate(-90deg);
+                background: rgba(255, 255, 255, 0.45);
+                border-radius: 20px;
+                border: 1px solid white;
+                box-shadow: 0 0 20px white;
+                padding: 10px;
+                left: -210px;
+                animation: bounce2 0.5s ease-in-out alternate infinite;
+            }
+
+
+          
+
+            
+
+        </style>
+    </head>
+    <body>
+        
+        
+        <div class="container" id="controller">
+            <div class="title"><h1>Card Memory Game</h1></div>
+
+          
+
+            <div id="1" class="card" onclick="CardClicked(1)"></div>
+            <div id="2" class="card" onclick="CardClicked(2)"></div>
+            <div id="3" class="card" onclick="CardClicked(3)"></div>
+            <div id="4" class="card" onclick="CardClicked(4)"></div>
+            <div id="5" class="card" onclick="CardClicked(5)"></div>
+            <div id="6" class="card" onclick="CardClicked(6)"></div>
+            <div id="7" class="card" onclick="CardClicked(7)"></div>
+            <div id="8" class="card" onclick="CardClicked(8)"></div>
+            <div id="9" class="card" onclick="CardClicked(9)"></div>
+            <div id="10" class="card" onclick="CardClicked(10)"></div>
+            <div id="11" class="card" onclick="CardClicked(11)"></div>
+            <div id="12" class="card" onclick="CardClicked(12)"></div>
+
+            <div class="stats">
+                score
+                <p class="score">00</p>
+            </div>
+
+        </div>
+
+        <script>
+
+         
+
+            var dict = {
+                1: 'red',
+                2: 'green',
+                3: 'yellow',
+                4: 'orange',
+                5: 'pink',
+                6: 'violet',
+                7: 'green',
+                8: 'yellow',
+                9: 'red',
+                10: 'pink',
+                11: 'orange',
+                12: 'violet'
+            
+            };
+
+            let ids = [];
+
+            let cardmatched = false;
+
+            let score = 0;
+
+           
+
+            function CardClicked(id){  
+
+                document.getElementById(`${id}`).style.backgroundColor = dict[id];
+                document.getElementById(`${id}`).style.transform = 'rotate3d( 0, 1, 0, 360deg)';
+                document.getElementById(`${id}`).style.boxShadow = '0 0 40px rgba(0,0,0,0.7)';
+            
+                ids.push(id);
+                console.log(ids);
+
+                setTimeout(control(), 2000);           
+            }
+
+            function control(){
+
+                
+                
+                if(ids.length === 2){
+
+                    match(ids[0], ids[1]);
+
+                    if(cardmatched){
+                        document.getElementById(`${ids[0]}`).style.backgroundColor ='rgba(255,255,255,0.2)';
+                        document.getElementById(`${ids[1]}`).style.backgroundColor='rgba(255,255,255,0.2)';
+                        document.getElementById(`${ids[0]}`).onclick ='none';
+                        document.getElementById(`${ids[1]}`).onclick = 'none';
+                    
+                        
+                        ids.length = 0;
+                        console.log(ids);
+
+                        score++;
+                        document.querySelector('.score').innerHTML=`${score}`;
+
+                        if(score === 6){
+                            score=0;
+                            document.getElementById('controller').innerHTML= '<h1>You Win</h1> <h2>Your score is 6</h2> <button class="replay" onclick="replay()">Play again</button>';
+                        }
+
+                    }else{
+                        console.log(ids);
+                        document.getElementById(`${ids[0]}`).style.backgroundColor ='rgba(255, 255, 255, 0.629)';
+                        document.getElementById(`${ids[1]}`).style.backgroundColor='rgba(255, 255, 255, 0.629)';
+                        document.getElementById(`${ids[0]}`).style.boxShadow ='0 0 20px white';
+                        document.getElementById(`${ids[1]}`).style.boxShadow='0 0 20px white';
+                        document.getElementById(`${ids[0]}`).style.transform ='none';
+                        document.getElementById(`${ids[1]}`).style.transform='none';
+                        ids.length = 0;
+
+                        console.log(ids)
+                    }
+                }
+            }
+
+
+
+            function match(btn1, btn2){
+
+                if(dict[btn1] === dict[btn2]){
+                    cardmatched = true;
+                }else{
+                    cardmatched = false;
+                }
+            
+            };
+
+            control();
+
+            function replay(){
+                document.getElementById('controller').innerHTML='<div class="title"><h1>Card Memory Game</h1></div> <div id="1" class="card" onclick="CardClicked(1)"></div><div id="2" class="card" onclick="CardClicked(2)"></div><div id="3" class="card" onclick="CardClicked(3)"></div><div id="4" class="card" onclick="CardClicked(4)"></div><div id="5" class="card" onclick="CardClicked(5)"></div><div id="6" class="card" onclick="CardClicked(6)"></div> <div id="7" class="card" onclick="CardClicked(7)"></div><div id="8" class="card" onclick="CardClicked(8)"></div> <div id="9" class="card" onclick="CardClicked(9)"></div><div id="10" class="card" onclick="CardClicked(10)"></div><div id="11" class="card" onclick="CardClicked(11)"></div><div id="12" class="card" onclick="CardClicked(12)"></div><div class="stats">score<p class="score">00</p></div>';
+            }
+
+  
+        
+
+            
+        </script>
+    </body>
+</html>
