@@ -1,0 +1,117 @@
+*{
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.nav{
+    padding-left: 10px;
+    padding-right: 10px;
+    position: fixed;
+    top: 1%;
+    left: 50%;
+    transform: translateX(-50%);
+    height: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    gap: 5px;
+    background: linear-gradient( 120deg, rgba(153, 216, 76, 0.668), rgb(22, 162, 197) 100%);
+    border-radius: 50px;
+    border: 1px solid white;
+}
+.clr{
+    height: 25px;
+    width: 25px;
+    border-radius: 50%;
+    border: 3px solid white;
+    background: blue;
+    transition: all 0.15s ease-in-out;
+    cursor: pointer;
+}
+.clr:hover{
+    transform: scale(1.2);
+}
+.clr:nth-child(1){
+    background-color: black;
+
+}
+.clr:nth-child(2){
+    background-color: red;
+    
+}
+.clr:nth-child(3){
+    background-color: orange;
+    
+}
+.clr:nth-child(4){
+    background-color: blue;
+    
+}
+.clr:nth-child(5){
+    background-color: purple;
+    
+}
+.clr:nth-child(6){
+    background-color: yellow;
+    
+}
+.clr:nth-child(7){
+    background-color: yellowgreen;
+}
+.clr:nth-child(8){
+    background-color: white;
+    
+}
+button{
+    height: 50%;
+    width: 50px;
+    border-radius: 5px;
+    font-size: 15px;
+    color: white;
+    font-weight: bold;
+    cursor: pointer;
+    border: 1px  solid white;
+    background: linear-gradient( -120deg, rgba(153, 216, 76, 0.668), rgb(22, 162, 197) 100%);
+    box-shadow: 0 0 10px 0.2px white;
+    transition: all 0.5s ease-in-out;
+}
+button:hover{
+    box-shadow: none;
+    background: transparent;
+}
+input[type = "color"]{
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    background-color: transparent;
+    height: 40px;
+    width: 40px;
+    border:none;
+    cursor: pointer;
+    transition: all 0.15s ease-in-out;   
+}
+input[type ="color"]:hover{
+    transform: scale(1.2);
+}
+input[type = "color"]::-webkit-color-swatch{
+    border-radius: 50%;
+    border: 3px solid white;
+
+}
+#ageOutputId{
+    color: white;
+    font-weight: bold;
+    font-size: 15px;
+}
+#ageInputId{
+    background: linear-gradient(to left, rgb(167, 190, 16), rgb(10, 145, 194));
+    -webkit-appearance: none;
+    cursor: ew-resize;
+    outline: none;
+    height: 15px;
+    border-radius: 5px;
+    border: 3px solid white;
+    accent-color: white;
+}

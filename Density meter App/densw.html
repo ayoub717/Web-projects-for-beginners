@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="styleDense.css">
+        <title>Dense meter</title>
+    </head>
+    <body>
+        <div class="main">
+            <div class="inf">
+                <div>Entrer la masse:</div>
+                <input type="number" id="Mass_Input">
+                <div>Enter le volume:</div>
+                <input type="number" id="volume_Input">
+            </div>
+            <div class="Aquarium1">
+                <div class="Result">djdjd</div>
+                <div class="Aquarium">
+                    <div class="mat" id="mat"></div>
+                </div>
+               
+            </div>
+        </div>
+        <button onclick="Calculate();">
+            <span>Calculate</span>
+        </button>
+
+        <script>
+            function Calculate(){
+                let pwater = 1;
+                let mass = document.getElementById('Mass_Input').value;
+                let volume = document.getElementById('volume_Input').value;
+                let density = (mass/volume)/(pwater);
+                document.querySelector('.Result').innerHTML=`${density} g/ml`;
+                console.log(density);
+                var box = document.getElementById('mat');
+                if(density >= 1){
+                    box.style.bottom = '5px';            
+                }
+                   
+            }
+        </script>
+    </body>
+</html>

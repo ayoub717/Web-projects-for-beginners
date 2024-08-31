@@ -1,0 +1,160 @@
+html{
+    box-sizing: border-box;
+    height: 100%;
+}
+
+*,
+*::before,
+*::after{
+    box-sizing: inherit;
+    margin: 0;
+    padding: 0;
+}
+
+body{
+    height: inherit;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #2a2a72;
+    background-image: linear-gradient(315deg, #2a2a72 0%, #009ffd 74%);
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    font-display: swap;
+    flex-direction: column;
+    gap: 100px;
+}
+.main{
+    backdrop-filter: blur(6.6px);
+    -webkit-backdrop-filter: blur(6.6px);
+    background: rgba(255, 255, 255, 0.6);
+    padding: 20px;
+    border-radius: 30px 10px 30px 10px;
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    gap: 12px;
+    border: 1px solid rgba(255, 255, 255, 0.6);
+    box-shadow: 0 0 20px white;
+
+
+}
+.inf{
+
+    backdrop-filter: blur(6.6px);
+    -webkit-backdrop-filter: blur(6.6px);
+    background: rgba(255, 255, 255, 0.6);
+    flex-direction: column;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    padding: 20px;
+    height: 250px;
+    gap: 12px;
+    border-radius: 30px 10px 30px 10px;
+    border: 2px solid rgba(255, 255, 255, 1);
+    box-shadow: 0 0 20px white;
+    font-size: 18px;
+    font-style: italic;
+    font-weight: lighter;
+    color: #009ffd;
+
+}
+.Aquarium1{
+    border: 2px solid rgba(255, 255, 255, 1);
+    backdrop-filter: blur(6.6px);
+    -webkit-backdrop-filter: blur(6.6px);
+    background: rgba(255, 255, 255, 0.6);
+    padding: 50px;
+    width: 200px;
+    gap: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-direction: column;
+    border-radius: 30px 10px 30px 10px;
+    box-shadow: 0 0 20px white;
+
+
+}
+input{
+    padding: 3px;
+    border: 1px solid rgba(128, 125, 125, 0.418);
+    box-shadow: 0 0 10px gray;
+    background: rgba(227, 224, 224, 0.705);
+    border-radius: 50px;
+}
+
+.Aquarium{
+    height: 85px;
+    width: 150px;
+    background:  linear-gradient(315deg, #2a2a72 0%, #009ffd 74%);
+    border: 2px solid;
+    border-top: none;
+    border-radius: 0 0 20px 20px;
+    position: relative;
+}
+.mat{
+    height: 30px;
+    width: 30px;
+    border: none;
+    border-radius: 10px;
+    background-color: yellowgreen;
+    position: absolute;
+    top: -25px;
+    right: 5px;
+    bottom: 30px;
+    animation: wavyBoat 1s alternate  infinite;
+
+}
+
+@keyframes wavyBoat{
+    0% {
+        transform: translateY(3px);
+        background-color: yellowgreen;
+    }
+    100%{
+        transform: translateY(-3px);
+        background-color: rgb(143, 189, 50);
+
+    }
+}
+
+button{
+    padding: 20px;
+    width: 150px;
+    border: 2px solid rgba(255, 255, 255, 0.7);
+    border-radius: 40px 20px 40px 20px;
+    backdrop-filter: blur(5.5px);
+    -webkit-backdrop-filter: blur(5.5px);
+    background: rgba(255, 255, 255, 0.7);
+    cursor: pointer;
+    transition: all 0.15s ease-in-out;
+}
+
+button:hover{
+    animation: lighter 0.5s alternate  infinite;
+}
+
+button:active{
+    transform: scale(1.2) rotate(-30deg);
+}
+
+@keyframes lighter {
+    0%{
+        box-shadow: none;
+    }
+    100%{
+        box-shadow: 0 0 50px white;
+    }
+}
+
+
+
+span{
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    font-size: 24px;
+    background: -webkit-linear-gradient(315deg, #2a2a72 0%, #009ffd 74%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+
+}

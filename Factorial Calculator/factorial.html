@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Factorial Calculator</title>
+    <style>
+        html{
+            box-sizing: border-box;
+            height: 100%;
+        }
+        *,
+        *::before,
+        *::after{
+            box-sizing: inherit;
+            margin: 0;
+            padding: 0;
+
+        }
+        body{
+            height: inherit;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: linear-gradient(120deg, green, yellow);
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            font-display: swap;
+        }
+
+        .main{
+            padding: 10px;
+            background: rgba(255, 255, 255, 0.853);
+            border-radius: 20px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: space-between;
+            width: 50%;
+            gap: 20px;
+            border: 1px solid white;
+            box-shadow: 0 0 40px rgba(0,0,0,0.5);
+        }
+        .cont{
+            width: 100%;
+            display: flex;
+            align-items: center;
+           
+        }
+
+        .txt{
+            text-align: left;
+            width: 120px;
+            font-style: italic;
+
+        }
+
+        input{
+            flex: 1;
+            height: 30px;
+            border-radius: 50px;
+            border: 1px solid rgba(0, 0, 0, 0.671);
+            background: rgba(255,255,255,0.9);
+            padding-left: 20px;
+        }
+
+        button{
+            width: 50%;
+            height: 40px;
+            border-radius: 50px;
+            background: linear-gradient(120deg, green, yellow);
+            border: 1px solid white;
+            color: white;
+            font-size: 20px;
+            font-weight: bolder;
+            cursor: pointer;
+            transition: all 0.5s ease-in-out;
+        }
+
+        button:hover{
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.479);
+            transform: scale(1.2);
+        }
+        .result{
+            font-size: 25px;
+            font-weight: bolder;
+            margin-left: 10px;
+        }
+     
+    </style>
+</head>
+<body>
+    <div class="main">
+        <h1>Factorial calculator</h1>
+        <div class="cont">
+            <p class="txt">Enter a number</p>
+            <input id="n" type="number">
+        </div>
+        <button onclick="Calculate()">Calculate</button>
+        <p class="res">The factorial is:   <span id="res" class="result">00</span></p>
+    </div>
+
+    <script>
+        function Calculate(){
+            const n = parseInt(document.getElementById('n').value);
+
+            console.log(n);
+
+            if(n == 0){
+                document.getElementById('res').innerHTML = '1';
+            }
+            else{
+                let i = n, fact = 1;
+                while(Math.floor(n/i) != n){
+                    fact = fact * i;
+                    i--;
+                }
+                document.getElementById('res').innerHTML = `${fact}`;
+            }        
+          
+        
+        }
+    </script>
+    
+</body>
+</html>

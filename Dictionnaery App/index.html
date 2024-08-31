@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>
+        dictionnary App
+    </title>
+    <style>
+        html{
+            box-sizing: border-box;
+            height: 100%;
+        }
+        *,
+        *::before,
+        *::after{
+            box-sizing: inherit;
+            margin: 0;
+            padding: 0;
+
+        }
+        body{
+            height: inherit;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: linear-gradient(120deg, rgba(194, 197, 17, 0.638),rgb(45, 93, 8));
+            font-family: 'Dosis', sans-serif;
+            font-display: swap;
+        }
+        main{
+            transition: all 0.5s ease-in-out;
+            background: rgba(255, 255, 255, .15);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            padding: 20px;
+            width: 500px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+            gap: 10px;
+            border: 1px solid rgba(255, 255, 255, 0.547);
+            border-radius: 50px;
+            box-shadow: -50px 50px 100px rgba(0, 0, 0, 0.768);
+            cursor: pointer;
+            font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+            animation: float 1s alternate infinite;
+        }
+        h1{
+            color: white;
+            width: 100%;
+            text-align: center;
+        }
+        .GPU{
+            width: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+        }
+        .SearchBar{
+            box-shadow: 0 0 15px rgba(255, 255, 255, 0.768);
+            flex: 1;
+            height: 50px;
+            border-radius: 50px;
+            border: 1px solid rgba(255, 255, 255, 0.547);
+            background: rgba(255, 255, 255, .5);
+            padding-left: 20px;
+            font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+        }
+        .Search{
+            height: 50px;
+            width: 50px;
+            border-radius: 50%;
+            padding: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border: 1px solid rgba(255, 255, 255, 0.547);
+            background: rgba(255, 255, 255, .5);
+            font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+            color: rgba(255, 255, 255, .95);
+            cursor: pointer;
+            transition: all 0.5s ease-in-out;
+        }
+        .Search:hover{
+            box-shadow: 0 0 15px rgba(255, 255, 255, 0.768);
+            transform: translateY(-5px) rotate(320deg);
+        }
+        .Explaining{
+            box-shadow: 0 0 15px rgba(255, 255, 255, 0.768);
+            padding: 20px;
+           display: flex;
+           align-items: start;
+           justify-content: center;
+           flex-direction: column;
+           gap: 5px;
+           border: 1px solid rgba(255, 255, 255, 0.547);
+           width: 100%;
+           border-radius: 40px;
+           height: 200px;
+           background: rgba(255, 255, 255, .5);
+           font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;    
+        }
+        @keyframes  float {
+            from{
+                transform: translateY(5px);
+            }to{
+                transform: translateY(-5px);
+            }
+            
+        }
+    </style>
+</head>
+<body>
+    <main>
+        <h1>Dictionnary App</h1>
+        <div class="GPU">
+            <input id="S" class="SearchBar" type="text" placeholder="Enter a noun">
+            <button onclick="Search()" class="Search">Search</button>
+        </div>
+        <div id="T" class="Explaining"></div>
+    </main>
+    <script>
+        function Search(){
+            const Explaining = document.getElementById('T'); 
+            const word1 = document.getElementById('S').value;
+            fetch(`https://api.dictionaryapi.dev/api/v2/entries/en/${word1}`)
+                .then(res => res.json())
+                .then(data => {
+                    Explaining.innerHTML = `<h2>${data[0].word}</h2>
+                    <p>Definition: ${data[0].meanings[0].definitions[0].definition}</p>
+                    <p>Example: ${data[0].meanings[0].definitions[0].example}</p>
+                    <p> Synonyms: ${data[0].meanings[0].definitions[0].synonyms[0]},${data[0].meanings[0].definitions[0].synonyms[1]}</p>`;
+                });
+        };
+    </script>  
+</body>
+</html>

@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Dice Roll simulator</title>
+        <style>
+            html{
+                box-sizing: border-box;
+                height: 100%;
+            }
+            *,
+            *::before,
+            *::after{
+                box-sizing: inherit;
+                margin: 0;
+                padding: 0;
+
+            }
+            body{
+                flex-direction: column;
+                height: inherit;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                background-color: rgb(238, 240, 240);
+                font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+                font-display: swap;
+            }
+
+            .main{
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                justify-content: space-evenly;
+                height: 50%;
+                width: 50%;
+                background-color: white;
+                padding: 10px;
+                border: 2px solid  black;
+                border-radius: 20px;
+                box-shadow: 40px 20px black;
+                transition: all  0.5s ease-in;
+                cursor: pointer;
+            }
+            .main:hover{
+                box-shadow: -40px 20px black;
+            }
+
+            h1{
+                font-weight: bold;
+                text-decoration: underline double;
+                animation: bounce 1s alternate ease-in-out infinite;
+            }
+
+            button{
+                width: 50%;
+                height: 20%;
+                border-radius: 50px;
+                color: white;
+                font-size: 20px;
+                font-weight: bolder;
+                background: black;
+                border: 2px solid white;
+                box-shadow: 20px 10px 20px rgba(0,0,0,0.4);
+                cursor: pointer;
+                transition: 0.5s all ease-in;
+            }
+
+            button:hover{
+                box-shadow: -20px 10px 20px rgba(0,0,0,0.4);
+            }
+
+            @keyframes bounce {
+                0%{
+                    transform: translateX(2px);
+                }20%{
+                    transform: translateX(-2px);
+                }100%{
+                    transform: translateX(2px);
+                }
+                
+            }
+
+            img{
+                transition: all 0.5s ease-in;
+            }
+
+            @keyframes rotate {
+                from{
+                    transform: rotate(0deg);
+                }to{
+                    transform: rotate(720deg);
+                }
+                
+            }
+        </style>
+    </head>
+    <body>
+        <div class="main">
+            <h1>Dice Roll Simulator</h1>
+            <img  id="img" src="dice1.png" alt="">
+            <button onclick="roll()" id="btn">Roll Dice</button>
+        </div>
+        
+
+        <script>
+            function roll(){
+                const img = document.getElementById('img');
+                
+                const num = Math.floor(Math.random() * (6 - 1 + 1) + 1);
+
+                img.style.transform = "rotate(720deg)";
+
+              
+                if(num === 1){
+                    img.scr="dice1.png";
+                }else if(num ===2){
+                    img.src="dice2.png"
+                }else if(num ===3){
+                    img.src="dice3.png"
+                }else if(num ===4){
+                    img.src="dice4.png"
+                }else if(num ===5){
+                    img.src="dice5.png"
+                }else if(num ===6){
+                    img.src="dice6.png"
+                }
+            }
+            
+        </script>
+        
+    </body>
+</html>
