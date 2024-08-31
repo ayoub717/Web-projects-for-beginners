@@ -1,0 +1,292 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FreeStyle</title>
+    <style>
+        html{
+            box-sizing: border-box;
+            height: 100%;
+        }
+        *,
+        *::before,
+        *::after{
+            box-sizing: inherit;
+            margin: 0;
+            padding: 0;
+
+        }
+        body{
+            height: inherit;
+            background: rgb(12, 12, 12);
+            font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+            font-display: swap;
+            position: relative;
+            padding-bottom: 50px;
+            padding-top: 100px;
+            padding-left: 50px;
+            padding-right: 50px;
+        }
+        .head{
+            z-index: 99;
+            position: fixed;
+            top: 0;
+            right: 0;
+            left: 0;
+            backdrop-filter: blur(2.7px);
+            -webkit-backdrop-filter: blur(2.7px);
+            background: rgba(255, 255, 255, 0.7);
+            border-bottom: 1px solid white;
+            box-shadow: 0 0 200px 15px white;
+            font-size: 18px;
+            font-weight: bold;
+            color: rgb(52, 50, 50);
+            width: 100%;
+            display: flex;
+            align-items:center;
+            justify-content: space-around;
+            height: 60px;
+            padding: 15px;
+            gap: 20px;
+
+        }
+        .title{
+            font-size: 25px;
+            width: 300px;
+            height: 100%;
+            color: rgb(25, 25, 25);
+            text-transform: capitalize;
+            text-transform: uppercase;
+            text-decoration: underline;
+            background: rgba(255, 255, 255, 0.9);
+            text-align: center;
+            border-radius: 20px;
+            border: 1px solid white;
+            box-shadow: 0 0 15px white;
+            animation: move 0.5s infinite alternate;
+        }
+        input{
+            flex: 1;
+            height: 100%;
+            border-radius: 20px;
+            border: 1px solid white;
+            background: rgba(255, 255, 255, 0.5);
+            padding-left: 10px;
+            font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+            font-weight: bold;
+            font-style: italic;
+            box-shadow: 0 0 15px white;
+            animation: move 0.5s infinite alternate-reverse;
+
+        }
+        .search{
+            height: 100%;
+            width: 30px;
+            background: rgba(255, 255, 255, 0.9);
+            padding: 2px;
+            border: 1px solid white;
+            border-radius: 50%;
+            box-shadow: 0 0  20px white;
+            transition: all 1s ease-in-out;
+
+        }
+        .search:hover{
+            transform: rotate(720deg);
+            box-shadow: 0 0 200px 50px white ;
+           
+        }
+        @keyframes  move {
+            from{
+                transform: translateY(-2px);
+                transform: translateX(2px);
+            }to{
+                transform: translateY(2px);
+                transform: translateX(-2px);
+            }
+            
+        }
+        .main{
+            width: 100%;
+            height: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-direction: row;
+            padding: 20px;
+            gap: 20px;
+            background: rgba(255, 255, 255, 0.7);
+            border: 1px solid white;
+            border-radius: 100px 50px 100px 50px;
+            box-shadow: 0 0 15px white;
+            animation: move1 0.5s infinite alternate;
+        }
+        .pic{
+            flex: 1;
+            height: 100%;
+            background-color: transparent;
+            border-radius: 100px 50px 100px 50px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            
+        }
+        .pict{
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            border-radius: 100px 50px 100px 50px;
+            box-shadow: 0 0 15px white;
+
+        }
+        .description{
+            flex: 1;
+            height: 100%;
+            background: rgba(255, 255, 255, 0.5);
+            border-radius: 50px 50px 50px 50px;
+            display: flex;
+            align-items: center;
+            justify-content: space-around;
+            flex-direction: column;
+            gap: 20px;
+            padding: 15px;
+            border: 1px solid white;
+            box-shadow: 0 0 15px white;
+
+        }
+        .latestsongs{
+            flex: 1;
+            height: 100%;
+            background: transparent;
+            border-radius: 100px 50px 100px 50px;
+            padding: 10px;
+            padding-left: 25px;
+            display: flex;
+            align-items: center;
+            justify-content: space-around;
+            flex-direction: column;
+
+        }
+        .latestsongs div{
+            background: rgba(255, 255, 255, 0.9);
+            padding: 10px;
+            border: 1px solid white;
+            border-radius: 100px 50px;
+            box-shadow: 0 0 15px white;
+            color: rgb(0, 0, 0);
+            width: 100%;
+            cursor: pointer;
+            text-align: center;
+            transition: all 0.5s ease-in-out;
+        }
+        .latestsongs div:hover{
+            text-decoration: underline;
+            transform: rotate(30deg) scale(1.2);
+        }
+        @keyframes move1{
+            from{
+                transform: translateY(-2px);
+            }to{
+                transform: translateY(2px);
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="head">
+        <p class="title">MarRap</p>
+        <input id="in" type="text" placeholder="Ex: morphine">
+        <img class="search" src="icons8-search.svg" alt="" onclick="search()">
+    </div>
+    <div class="main">
+        <div class="pic">
+            <img id="profilpic" class="pict" src="morphine.webp" alt="">
+
+        </div>
+        <div class="description">
+            <h2 style="text-decoration: underline;">description</h2>
+            <p id="description" class="des">Pour les uns, c’est une icône du hip
+                 hop marocain. Pour les autres, 
+                 un rappeur à clasher dès que 
+                 l’occasion se présente. Ce qui
+                  est sûr, c’est que le paysage 
+                  rap du royaume ne serait pas 
+                  le même sans L’Morphine (connu 
+                  sous le blase M-Psy 
+                  jusqu’en 2010). D’abord, 
+                  parce que le natif de Salé rappe 
+                  depuis 1998, et que malgré 
+                  quelques moments d’introspection 
+                  ou de disparition, il fait 
+                  partie des lyricistes les plus 
+                  pointus et les plus prolifiques 
+                  du pays (187 morceaux en tout à 
+                  travers ses différents projets). 
+                  Admiré par ceux qui l’ont 
+                  découvert à travers le collectif 
+                  Piranha-Labo en 2006 ou par des
+                   MC venus après lui, à l’instar 
+                   de Small X ou Nessyou, 
+                   L’Morphine jouit d’une aura 
+                   particulière auprès de ses 
+                   pairs. Comme s’il incarnait, 
+                   à lui seul, un pan majeur de 
+                   l’histoire du rap marocain.</p>
+
+        </div>
+        <div class="latestsongs">
+            <div id="s1">l'Morphine ft. Hamza 15-3 - DIAMOND (Official Visualizer)</div>
+            <div id="s2">l'Morphine - Sucré Salé (Official Audio)</div>
+            <div id="s3">l'Morphine - VETO (Official Audio)</div>
+            <div id="s4">L'Morphine ft. Meth - ISOTOPES (Official Audio)</div>
+
+        </div>
+    </div>
+    <script>
+        function search(){
+            const profilpic = document.getElementById('profilpic');
+            const description = document.getElementById('description');
+            const song1 = document.getElementById('s1');
+            const song2 = document.getElementById('s2');
+            const song3 = document.getElementById('s3');
+            const song4 = document.getElementById('s4');
+            const userInput = document.getElementById('in').value;
+            fetch('./rap.json')
+                .then(res => res.json())
+                .then(data => {
+                    if(userInput === "morphine"){
+                        profilpic.src = data[0].profilepic;
+                        description.innerHTML = data[0].description;
+                        song1.innerHTML = data[0].song1;
+                        console.log(song1);
+                        song2.innerHTML = data[0].song2;
+                        song3.innerHTML = data[0].song3;
+                        song4.innerHTML = data[0].song4;
+                    }else if(userInput === "Pause"){
+                        profilpic.src = data[1].profilepic;
+                        description.innerHTML = data[1].description;
+                        song1.innerHTML = data[1].song1;
+                        song2.innerHTML = data[1].song2;
+                        song3.innerHTML = data[1].song3;
+                        song4.innerHTML = data[1].song4;
+
+                    }else if(userInput === "toto"){
+                        profilpic.src = data[2].profilepic;
+                        description.innerHTML = data[2].description;
+                        song1.innerHTML = data[2].song1;
+                        song2.innerHTML = data[2].song2;
+                        song3.innerHTML = data[2].song3;
+                        song4.innerHTML = data[2].song4;
+
+                    };
+                
+                });
+
+        };
+        
+       
+
+
+    </script>
+</body>
+</html>

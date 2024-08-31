@@ -1,0 +1,29 @@
+[
+    {
+        "name": "morphine",
+        "profilepic" : "morphine.webp",
+        "description": "Pour les uns, c’est une icône du hiphop marocain. Pour les autres, un rappeur à clasher dès que l’occasion se présente. Ce quiest sûr, c’est que le paysage rap du royaume ne serait pas le même sans L’Morphine (connu sous le blase M-Psy jusqu’en 2010). D’abord, parce que le natif de Salé rappe depuis 1998, et que malgré quelques moments d’introspection ou de disparition, il fait partie des lyricistes les plus pointus et les plus prolifiques du pays (187 morceaux en tout à travers ses différents projets). Admiré par ceux qui l’ont découvert à travers le collectif Piranha-Labo en 2006 ou par desMC venus après lui, à l’instar de Small X ou Nessyou, L’Morphine jouit d’une aura particulière auprès de ses pairs. Comme s’il incarnait, à lui seul, un pan majeur de l’histoire du rap marocain.",
+        "song1":"l'Morphine ft. Hamza 15-3 - DIAMOND (Official Visualizer)",
+        "song2":"l'Morphine - Sucré Salé (Official Audio)",
+        "song3":"l'Morphine - VETO (Official Audio)",
+        "song4":"L'Morphine ft. Meth - ISOTOPES (Official Audio)"
+    },
+    {
+        "name": "Pause",
+        "profilepic": "pause.png",
+        "description":"Pause Flow Halfin, smito Jawad Asradi, tzad 3am 1995 f wahd lmdina smitha Imouzzer bin Fes w Ifrane, bda rap f 2009 walakin makanch ghaytl9 lkhdma dialo f lweb hta l 2013, meli dar wahd lgroupe b smit “Halfin” daro wahd serie d les freestyles likano clashat, hna fin bda lgroupe kaych9 tri9o. Mais f 2015 tfare9 l'groupe w b9a Pause Flow bouhdo, hna fin 7awl iw9f 3la rjlih b3d makhser kolchi w khdem mixtape b smit Off/On li chedat 3am d lkhdma. W men fost had lmixtape kayna khdma mfr9a ajza2 li smitha HALWASA w biha jme3 drari akhrin w 39liyat akhrin f Rap maghribi.",
+        "song1":"PAUSE - A SUIVRE ...",
+        "song2":"PAUSE - HABITUS (Official Music Video, Prod by Revdor & Aya Beats)",
+        "song3":"PAUSE - LYAM (Prod by KOKA) | EP. METAMORPHOSE",
+        "song4":"PAUSE - TIKI TAKA ft . BERMUDA (Prod by teaslax) | EP. METAMORPHOSE"
+    },
+    {
+        "name": "Elgrande Toto",
+        "profilepic":"totto.png",
+        "description":"Ayant débuté sa carrière en 2016, ElGrandeToto rencontre rapidement un très grand succès, notamment avec sa chanson Pablo (2017) qui réussit à le propulser au devant de la scène marocaine[réf. nécessaire].En 2018, il sort son premier projet, un EP intitulé Illicit2. En 2020, ElGrandeToto est le huitième artiste arabe le plus streamé dans la région MENA sur Deezer, et sa chanson Hors Série était la septième chanson la plus streamée sur la plateforme d'écoute3. La même année, il a remporté le titre de Meilleur artiste Hip-Hop/Rap lors des 2020 African Entertainment Awards États-Unis4.",
+        "song1":"DELLALI feat. @hamzasaucegod (Prod. by DoubleA, Nouvo,",
+        "song2":"ElGrandeToto - 7elmet Ado 6",
+        "song3":"Silhouette (Prod. by Voluptyk)",
+        "song4":"Gueule Tapée (Prod. by Ludafrick)"
+    }
+]

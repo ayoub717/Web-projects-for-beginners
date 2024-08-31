@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Love detector</title>
+
+        <style>
+
+            html{
+                box-sizing: border-box;
+                height: 100%;
+            }
+            *,
+            *::before,
+            *::after{
+                box-sizing: inherit;
+                margin: 0;
+                padding: 0;
+
+            }
+            body{
+                height: inherit;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                background: linear-gradient(120deg,rgb(228, 148, 162), rgb(244, 39, 39));
+                font-family: 'Dosis', sans-serif;
+                font-display: swap;
+                flex-direction: column;
+                gap: 20px;
+            }
+
+            .main{
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                justify-content: space-around;
+                gap: 20px;
+                padding: 20px;
+                background:rgba(255, 255, 255, 0.274);
+                border-radius: 30px;
+                border: 1px solid white;
+                box-shadow: 0px 0px 10px white;
+                animation: bounce 1s infinite alternate;
+            }
+
+            h1{
+                color: white;
+            }
+
+            button{
+                width: 50%;
+                height: 50px;
+                border-radius: 50px;
+                background: rgba(255, 255, 255, 0.274);
+                color: white;
+                font-weight: bold;
+                font-size: 20px;
+                border: 1px solid white;
+                cursor: pointer;
+                box-shadow: 0 0 10px white;
+                transition: all 0.5s ease-in-out;
+            }
+
+            button:hover{
+                border-radius: 70px 30px;
+                box-shadow: -5px 10px 20px rgb(255, 166, 181),
+                            5px -10px 100px rgb(244, 39, 39);
+                width: 40%;
+            }
+
+            @keyframes bounce {
+                form{
+                    transform: translateY(5px);
+                    box-shadow:  0 10px 10px white;
+                }to{
+                    transform: translateY(-5px);
+                    box-shadow: 0px -5px 20px white;
+                }
+                
+            }
+
+        </style>
+    </head>
+    <body>
+        <div class="main">
+            <h1>Find if she's in love with you or not</h1>
+
+            <button onclick="find()">Find out!</button>
+        </div>
+
+        <script>
+            function find(){
+                const num = Math.floor(Math.random() *(2 - 1 + 1) + 1);
+
+                if(num === 1){
+                    document.querySelector('h1').innerText = "She is! go make your move";
+                }else{
+                    document.querySelector('h1').innerText = "She is not! learn database instead"
+                }
+            }
+        </script>
+       
+    </body>
+</html>
