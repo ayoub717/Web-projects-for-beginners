@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Age Calculator</title>
+        <style>
+            html{
+                box-sizing: border-box;
+                height: 100%;
+            }
+            *,
+            *::before,
+            *::after{
+                box-sizing: inherit;
+                margin: 0;
+                padding: 0;
+            }
+            body{
+                height: inherit;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                background: linear-gradient(120deg, red,orange,yellow);
+                font-family: cursive;
+                font-display: swap;
+            }
+            .main{
+                backdrop-filter: blur(4px);
+                -webkit-backdrop-filter: blur(4px);
+                background: rgba(255, 255, 255, 0.35);
+                height: 300px;
+                display: flex;
+                align-items: center;
+                justify-content: space-around;
+                flex-direction: column;
+                border: 2px solid rgba(255, 255, 255, 0.34);
+                border-radius: 50px 100px;
+                box-shadow: 0 0 20px white;
+                padding: 50px;
+                position: relative;
+            }
+            .infos{
+                display: flex;
+                align-items: center;
+                gap: 30px;
+            }
+            .input{
+                background: rgba(255, 255, 255, 0.6);
+                padding: 15px;
+                border-radius: 30px;
+                border: 1px solid rgba(255, 255, 255, 0.9);
+                box-shadow: 0 0 20px white;
+                font-family: cursive;
+                font-style: italic;
+                color: gray;
+
+            }
+            .decoration{
+                position: absolute;
+                height: 150px;
+                width: 150px;
+                border-radius: 50%;
+                background: linear-gradient(120deg,yellow,orange,red);
+                top: -70px;
+                left: -70px;
+                color: white;
+                font-weight: bold;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                box-shadow: 0px 0px 25px black;
+            }
+            .decoration1{
+                position: absolute;
+                height: 150px;
+                width: 150px;
+                border-radius: 50%;
+                background: linear-gradient(120deg,yellow,orange,red);
+                bottom: -70px;
+                right: -70px;
+                color: white;
+                font-weight: bold;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                box-shadow: 0px 0px 25px black;
+               
+
+            }
+            .btn{
+                padding: 20px;
+                font-family: cursive;
+                border-radius: 40px 20px 40px 20px;
+                font-weight: bold;
+                font-size: 15px;
+                border: none;
+                width: 150px;
+                color: white;
+                background: linear-gradient(120deg,yellow,orange,red);
+                box-shadow: 0px 60px 15px rgba(0, 0, 0, 0.245);
+                transition: all 0.14s ease-in-out;
+                cursor: pointer;
+            }
+            .btn:hover{
+                transform: scale(1.2) rotate(10deg);
+            }
+            .btn:active{
+                text-decoration: underline;
+            }
+        </style>
+    </head>
+    <body>
+        <div class="main">
+            <div class="infos">
+                <p>Enter your birth date:</p>
+                <input id="bdate" class="input" type="date">
+            </div>
+            <button class="btn" onclick="CalculteAge();">Calculte Age</button>
+            <div class="decoration" id="txt"></div>
+            <div class="decoration1" id="age"></div>
+        </div>
+        <script>
+            function CalculteAge(){
+                
+                var now =new Date();                            //getting current date
+                var currentY= now.getFullYear();                //extracting year from the date
+                var currentM= now.getMonth();                   //extracting month from the date
+                
+                var dobget =document.getElementById("bdate").value; //getting user input
+                var dob= new Date(dobget);                             //formatting input as date
+                var prevY= dob.getFullYear();                          //extracting year from input date
+                var prevM= dob.getMonth();                             //extracting month from input date
+                
+                var ageY =currentY - prevY;
+                var ageM =Math.abs(currentM- prevM);          //converting any negative value to positive
+                
+                document.getElementById('txt').innerHTML = 'your age is';
+                document.getElementById('age').innerHTML = ageY +' years ' + ageM +' months';
+                
+
+            }
+        </script>
+        
+    </body>
+</html>
