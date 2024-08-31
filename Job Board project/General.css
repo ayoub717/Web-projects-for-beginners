@@ -1,0 +1,30 @@
+@font-face {
+    font-family: mainFont;
+    src: url(ClearwerkCraftRemix.ttf);
+}
+@font-face {
+    font-family: secFont;
+    src: url(newhorizons.ttf);
+}
+
+
+html{
+    box-sizing: border-box;
+    height: 100%;
+}
+*,
+*::before,
+*::after{
+    box-sizing: inherit;
+    margin: 0;
+    padding: 0;
+
+}
+body{
+    height: inherit;
+    background: #231F20;
+    padding-top: 100px;
+    padding: 8px;
+    height: 2000px;
+
+}
