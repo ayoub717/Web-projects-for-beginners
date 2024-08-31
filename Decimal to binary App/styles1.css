@@ -1,0 +1,135 @@
+html{
+    box-sizing: border-box;
+    height: 100%;
+}
+
+*,
+*::before,
+*::after{
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body{
+    
+    height: inherit;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: linear-gradient(120deg,#de6262 ,#ffb88c);
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-display: swap;
+}
+
+
+.main{
+    backdrop-filter: blur(4px);
+    -webkit-backdrop-filter: blur(4px);
+    background: rgba(255, 255, 255, 0.3);
+    border: 1px solid rgba(255, 255, 255, 0.34);
+    height: 300px;
+    width: 300px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-evenly;
+    border-radius: 30px;
+}
+.calculate-direction{
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    flex-direction: row;
+    backdrop-filter: blur(5.5px);
+    -webkit-backdrop-filter: blur(5.5px);
+    background: rgba(255, 255, 255, 0.5);
+    border: 1px solid rgba(255, 255, 255, 0.7);
+    padding: 10px;
+    width: 260px;
+    border-radius: 30px;
+}
+.img-btn{
+    backdrop-filter: blur(5.5px);
+    -webkit-backdrop-filter: blur(5.5px);
+    background: rgba(255, 255, 255, 0.5);
+    border: 1px solid rgba(255, 255, 255, 0.9);
+    border-radius: 10px;
+    padding: 5px;
+    transition: all 0.10s ease-in-out;
+
+}
+.img-btn:hover{
+    opacity: 0.5;
+}
+.txt-1{
+    background: linear-gradient(120deg,#de6262 ,#ffb88c);
+    padding: 10px;
+    border-radius: 19px;
+    border: 1px solid whitesmoke;
+    color: white;
+}
+.userInput{
+    font-style: inherit;
+    padding: 20px;
+    padding-left: 10px;
+    width: 250px;
+    border-radius: 30px;
+    border: 1px solid rgba(255, 255, 255, 0.34);
+    backdrop-filter: blur(5.5px);
+    -webkit-backdrop-filter: blur(5.5px);
+    background: rgba(255, 255,255, 0.7);
+}
+.Convert-btn{
+    width: 150px;
+    height: 50px;
+    padding: 0;
+    border-radius: 30px;
+    border: 1px solid whitesmoke;
+     font-size: 10px;
+    font-weight: bold;
+    color: white;
+    background: linear-gradient(120deg,#de6262 ,#ffb88c);
+    transition: all 0.5s ease-in-out;
+   
+}
+.Convert-btn:hover{
+    background: whitesmoke;
+    border: 1px solid #f39a9a;
+} 
+.btn-txt{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    width: 150px;
+    height: 50px ;
+    transition: all 0.15s ease-in-out;
+    background: w;
+}
+.btn-txt:hover{
+    background: linear-gradient(120deg,#de6262 ,#ffb88c);
+    -webkit-text-fill-color: transparent;
+    -webkit-background-clip: text;   
+}
+
+.css-result{
+    backdrop-filter: blur(5.5px);
+    -webkit-backdrop-filter: blur(5.5px);
+    background: rgba(255, 255, 255, 0.5);
+    border: 1px solid rgba(255, 255, 255, 0.7);
+    width: 260px;
+    border-radius: 30px;
+    padding: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.15s ease-in-out;
+}
+
+.Convert-btn:active .css-result{
+    height: 50px;
+   
+
+}
+

@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Dad jokes</title>
+        <style>
+            html{
+                box-sizing: border-box;
+                height: 100%;
+            }
+            *,
+            *::before,
+            *::after{
+                box-sizing: inherit;
+                margin: 0;
+                padding: 0;
+                font-family:Georgia, 'Times New Roman', Times, serif;
+
+            }
+            body{
+                height: inherit;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                background: linear-gradient(320deg,#bf8717,#bcc90a,#af911a);
+            }
+            .container{
+                position: relative;
+                background: rgba(219, 219, 59, 0.511);
+                backdrop-filter: blur(0.5px);
+                -webkit-backdrop-filter: blur(0.5px);
+                padding: 20px;
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                justify-content: space-between;
+                gap: 15px;
+                border-radius: 30px 50px 30px 50px;
+                border: 1px solid yellow;
+                box-shadow: 0 0 50px yellow;
+            }
+            h1,h3{
+                text-align: center;
+            }
+            .joke{
+                font-weight: bold;
+                font-size: 17px;
+                padding: 10px;
+                border-radius: 50px;               
+                background: rgba(255, 255, 255, 0.511);
+                border: 1px solid rgba(255, 255, 255, 0.426);
+                box-shadow: 0 0 20px;
+                color: black;
+            }
+            .btn{
+                width: 50%;
+                padding: 10px;
+                letter-spacing: 5px;
+                font-weight: bold;
+                font-size: 15px;
+                border-radius: 50px;
+                background: rgba(255, 255, 255, 0.511);
+                border: 1px solid rgba(255, 255, 255, 0.426);
+                box-shadow: 0 0 20px;
+                color: black;
+                cursor: pointer;
+                transition: all 0.5s ease-in-out;
+            }
+            .btn:hover{
+                letter-spacing: normal;
+                background: rgba(219, 219, 59, 0.511);
+                color: white;
+                border: 1px solid rgba(219, 219, 59, 0.75);
+                box-shadow: 0 0 20px whitesmoke;
+            }
+            .icon1{
+                position: fixed;
+                top: -50px;
+                left: -50px;
+                animation: chinkle 0.5s alternate infinite;
+
+            }
+            .icon2{
+                position: fixed;
+                bottom: -50px;
+                left: 90%;
+                animation: chinkle 0.5s alternate infinite;
+            }
+            .img1{
+                height: 100px;
+                filter: drop-shadow(0 -10px 10px rgb(255, 230, 0));
+            }
+            @keyframes  chinkle {
+                from{
+                    transform: rotate(30deg);
+                }to{
+                    transform: rotate(-30drg);
+                }
+                
+            }
+        </style>
+    </head>
+    <body>
+        <main>
+            <div class="container">
+                <h1>Dad jokes challenge</h1>
+                <h3>Try not laugh!</h3>
+                <p class="joke" id="jokediv">
+                    Why do we tell actors to "break a leg?" Because every play has a cast.</p>
+                <button class="btn" id="jokeBtn">click me for a joke!</button>
+                <div class="icon1"><img class="img1" src="icons8-face-with-tears-of-joy-94.png" alt=""></div>
+                <div class="icon2"><img class="img1" src="icons8-face-with-tears-of-joy-94.png" alt=""></div>
+            </div>
+        </main>
+        <script>
+            const jokeEl = document.getElementById('jokediv')
+            const jokeBtn = document.getElementById('jokeBtn')
+
+            jokeBtn.addEventListener('click', generateJoke)
+
+            generateJoke()
+
+            // USING ASYNC/AWAIT
+            async function generateJoke() {
+                const config = {
+                    headers: {
+                    Accept: 'application/json',
+                    },
+                }
+
+                const res = await fetch('https://icanhazdadjoke.com', config)
+
+                const data = await res.json()
+
+                jokeEl.innerHTML = data.joke
+            }
+
+
+        </script>
+
+    </body>
+</html>

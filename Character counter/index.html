@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Real-time Character counter</title>
+
+    <style>
+        html{
+            box-sizing: border-box;
+            height: 100%;
+        }
+        *,
+        *::before,
+        *::after{
+            box-sizing: inherit;
+            margin: 0;
+            padding: 0;
+
+        }
+        body{
+            height: inherit;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: linear-gradient(320deg,blue, violet);
+            font-family: 'Dosis', sans-serif;
+            font-display: swap;
+        }
+        .main{
+            padding: 10px;
+            background: rgba(255, 255, 255, 0.245);
+            border: 1px solid white;
+            border-radius: 10px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: space-around;
+            height: 300px;
+            box-shadow: 0 0 20px white;
+        }
+
+        h1{
+            color: white;
+        }
+
+        input{
+            width: 100%;
+            height: 60%;
+            border-radius: 10px;
+            background: rgba(255, 255, 255, 0.419);
+            border: 1px solid white;
+            font-size: 17px;
+            padding: 20px;
+            color: white;
+            font-weight: bold;
+            resize: none;
+        }
+
+        .stats{
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            width: 100%;
+            color: white;
+        }
+
+        span{
+            font-weight: bolder;
+            font-size: 20px;
+        }
+    
+    </style>
+</head>
+<body>
+    <div class="main">
+        <h1>Real-time Character counter</h1>
+        <input maxlength="50" type="text" id="input" placeholder="please write a 50 Characters text">
+        <div class="stats">
+            <p>Total Characters: <span id="total">00</span></p>
+            <p>Remaining: <span id="remaining">50</span></p>
+        </div>
+    </div>
+
+    <script>
+        const input = document.getElementById('input');
+        const total = document.getElementById('total');
+        const remaining = document.getElementById('remaining');
+
+        input.addEventListener("keyup", () => {
+            count();
+                    
+        })
+
+        count();
+
+        function count(){
+            total.innerHTML = input.value.length;
+            remaining.innerHTML= input.getAttribute("maxLength") - input.value.length;        
+        }
+       
+    </script>
+    
+</body>
+</html>
